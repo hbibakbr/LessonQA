@@ -1,0 +1,14 @@
+{
+    "valid_email": "andrejohnson@gmail.com",
+    "valid_password": "Password_123",
+    "wrong_email": "johnsonandre@gmail.com",
+    "wrong_password": "Password_124",
+    "invalid_email": "andrejohnson",
+    "invalid_password": "P_123",
+    "message" : {
+        "msg_wrong_email": "Please wait and try again later",
+        "msg_wrong_password": "Please wait and try again later",
+        "msg_invalid_email": "Please enter a valid email address",
+        "msg_invalid_password": "Please enter a valid email address"
+    }
+  }
