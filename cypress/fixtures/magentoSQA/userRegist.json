@@ -1,0 +1,11 @@
+{
+    "firtsname": "Andre",
+    "lastname": "Johnson",
+    "firstnameChange": "Andre Manuel",
+    "lastnameChange": "Robert Johnson",
+    "message": {
+        "msg_success_save": "You saved the account information.",
+        "msg_failed_firstname": "This is a required field.",
+        "msg_failed_lastname": "This is a required field."
+    }
+}

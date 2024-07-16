@@ -19,7 +19,6 @@ class loginPage {
     verifyAlertLoginFailedWrongPass(message) {
         cy.get('.message-error').should('contain.text', message)
     }
-
 }
 
 export default new loginPage()

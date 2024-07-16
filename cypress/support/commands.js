@@ -52,3 +52,17 @@ Cypress.Commands.add('alertFailedLoginInvalidEmail', (selector, message) => {
 Cypress.Commands.add('alertFailedLoginWrongPass', (selector, message) => {
     cy.get(selector).should('contain.text', message)
 })
+
+Cypress.Commands.add('messageSuccess', (selector, message) => {
+    cy.get(selector).should('contain.text', message)
+})
+
+Cypress.Commands.add('messageFailedFirstname', (selector, message) => {
+    cy.get(selector).should('contain.text', message)
+})
+
+Cypress.Commands.add('messageFailedLastname', (selector, message) => {
+    cy.get(selector).should('contain.text', message)
+})
+
+
