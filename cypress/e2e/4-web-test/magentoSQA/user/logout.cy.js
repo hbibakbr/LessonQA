@@ -3,7 +3,7 @@ import '../../../../support/commands'
 import logoutPage from "../../../../support/pageObject/magentoSQA/logout.page"
 const userLogin = require('../../../../fixtures/magentoSQA/userLogin.json')
 
-describe('Functionela Logout Test', () => {
+describe('Functional Logout Test', () => {
     beforeEach(() => {
         cy.visit('https://magento.softwaretestingboard.com/')
         cy.get('.panel > .header > .authorization-link > a').click()

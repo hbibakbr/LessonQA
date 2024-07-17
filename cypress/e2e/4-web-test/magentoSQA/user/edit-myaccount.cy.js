@@ -186,7 +186,7 @@ describe('Functional Edit My Account Test', () => {
     myaccountPage.verifySuccessChangeName(userRegist.message.msg_success_save)
   })
 
-  it.only('Verify Failed Change Lastname - Empty lastname', () => {
+  it('Verify Failed Change Lastname - Empty lastname', () => {
     cy.get(loginPage.email).type(userLogin.valid_email)
     cy.get(loginPage.password).type(userLogin.valid_password)
     loginPage.clickLoginButton()

@@ -65,4 +65,12 @@ Cypress.Commands.add('messageFailedLastname', (selector, message) => {
     cy.get(selector).should('contain.text', message)
 })
 
+Cypress.Commands.add('messageSuccessAddCart', (selector, message) => {
+    cy.get(selector).should('contain.text', message)
+})
+
+Cypress.Commands.add('messageFailedAddCart', (selector, message) => {
+    cy.get(selector).should('contain.text', message)
+})
+
 

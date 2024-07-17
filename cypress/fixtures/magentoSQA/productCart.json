@@ -1,0 +1,7 @@
+{
+    "message" : {
+        "msg_invalid_cart": "Please enter a valid number in this field.",
+        "msg_failed_cart": "Please enter a quantity greater than 0",
+        "msg_success_cart": "You added"
+    }
+  }
