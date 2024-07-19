@@ -2,6 +2,7 @@
 Repository for Learning Software Quality Assurance
 
 This is a web testing automation project built using **Cypress** framework
+
 The project includes 4 Features or Scenario from [Magento Softwaretestingboard](https://magento.softwaretestingboard.com/)
 
 **Auth**
