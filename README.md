@@ -1,6 +1,5 @@
-# LessonQA
+# Quality Assurance Learning Project 1
 Repository for Learning Software Quality Assurance
-Software Quality Assurance for Portofolio
 
 This project Include 4 Features or Scenario on [Magento Softwaretestingboard](https://magento.softwaretestingboard.com/)
 
