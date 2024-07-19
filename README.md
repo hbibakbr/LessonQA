@@ -1,7 +1,8 @@
 # Quality Assurance Learning Project 1
 Repository for Learning Software Quality Assurance
 
-This project Include 4 Features or Scenario on [Magento Softwaretestingboard](https://magento.softwaretestingboard.com/)
+This is a web testing automation project built using **Cypress** framework
+The project includes 4 Features or Scenario from [Magento Softwaretestingboard](https://magento.softwaretestingboard.com/)
 
 **Auth**
 1. Registration
