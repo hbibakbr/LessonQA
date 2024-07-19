@@ -73,4 +73,14 @@ Cypress.Commands.add('messageFailedAddCart', (selector, message) => {
     cy.get(selector).should('contain.text', message)
 })
 
+// Cart
+
+Cypress.Commands.add('messageSuccessCheckout', (selector, message) => {
+    cy.get(selector).should('contain.text', message)
+})
+
+Cypress.Commands.add('alertFailedCheckoutNoShippingMethods', (selector, message) => {
+    cy.get(selector).should('contain.text', message)
+})
+
 

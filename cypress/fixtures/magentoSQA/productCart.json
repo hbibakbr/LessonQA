@@ -2,6 +2,8 @@
     "message" : {
         "msg_invalid_cart": "Please enter a valid number in this field.",
         "msg_failed_cart": "Please enter a quantity greater than 0",
-        "msg_success_cart": "You added"
+        "msg_success_cart": "You added",
+        "msg_succces_checkout": "Thank you for your purchase!",
+        "msg_failed_no_shipping_methods": "The shipping method is missing. Select the shipping method and try again."
     }
   }

@@ -1,6 +1,6 @@
 import "../../../../support/commands"
 import cartPage from "../../../../support/pageObject/magentoSQA/cart.page"
-import productPage from "../../../../support/pageObject/magentoSQA/product.page"
+const productCart = require ("../../../../fixtures/magentoSQA/productCart.json")
 
 describe('Functional Checkout Test Case', () => {
     beforeEach(() => {
@@ -16,22 +16,36 @@ describe('Functional Checkout Test Case', () => {
         cy.messageSuccessAddCart('.message-success', 'You added ')
     })
 
-    // Custom Commands.ja
+    // Custom Commands.js
 
     it('Verify Success Checkout Item', () => {
         cy.wait(2000)
         cy.get('.showcart').click()
         cy.wait(2000)
         cy.get(':nth-child(7) > .secondary > .action > span').should('be.visible').click({ force: true })
-        cy.wait(10000)
+        cy.wait(60000)
         cy.get('.methods > :nth-child(1) > .action').click()
-        cy.wait(10000)
+        cy.wait(60000)
         cy.get(':nth-child(1) > :nth-child(1) > .radio').click()
         cy.get('.button').click()
-        cy.wait(6000)
+        cy.wait(3000)
         cy.get('.payment-method-content > :nth-child(4) > div.primary > .action').click({force: true})
-        cy.get('.base').should('contain.text', 'Thank you for your purchase!')
+        cy.messageSuccessCheckout('.base', 'Thank you for your purchase!')
+        //cy.get('.base').should('contain.text', 'Thank you for your purchase!')
+        
+    })
 
+    it.only('Verify Failed Checkout Item on Cart - No Shipping Methods', () => {
+        cy.wait(2000)
+        cy.get('.showcart').click()
+        cy.wait(2000)
+        cy.get(':nth-child(7) > .secondary > .action > span').should('be.visible').click({ force: true })
+        cy.wait(60000)
+        cy.get('.methods > :nth-child(1) > .action').click()
+        cy.wait(60000)
+        cy.get('.button').click()
+        cy.alertFailedCheckoutNoShippingMethods('#co-shipping-method-form > .message', 'The shipping method is missing. Select the shipping method and try again.')
+        // cy.get('#co-shipping-method-form > .message').should('contain.text', 'The shipping method is missing. Select the shipping method and try again.')
     })
 
     // Page object Modeling (POM)
@@ -42,14 +56,56 @@ describe('Functional Checkout Test Case', () => {
         cy.wait(2000)
         cartPage.viewEditCart()
         cy.wait(10000)
-        cy.get('.methods > :nth-child(1) > .action').click()
+        cartPage.clickProceedCheckout()
         cy.wait(10000)
-        cy.get(':nth-child(1) > :nth-child(1) > .radio').click()
-        cy.get('.button').click()
-        cy.wait(6000)
-        cy.get('.payment-method-content > :nth-child(4) > div.primary > .action').click({force: true})
-        cy.get('.base').should('contain.text', 'Thank you for your purchase!')
+        cartPage.shippingMethodsBestWay()
+        cartPage.clickNext()
+        cy.wait(3000)
+        cartPage.clickPlaceOrder()
+        cartPage.messageSuccessCheckout('Thank you for your purchase!')
+        
+    })
 
+    it('Verify Failed Checkout Item on Cart - No Shipping Methods', () => {
+        cy.wait(2000)
+        cartPage.clickCart()
+        cy.wait(2000)
+        cartPage.viewEditCart()
+        cy.wait(10000)
+        cartPage.clickProceedCheckout()
+        cy.wait(10000)
+        cartPage.clickNext()
+        cartPage.alertFailedNoShippingMethods('The shipping method is missing. Select the shipping method and try again.')
+    })
+
+    // Fixtures
+
+    it('Verify Success Checkout Item', () => {
+        cy.wait(2000)
+        cartPage.clickCart()
+        cy.wait(2000)
+        cartPage.viewEditCart()
+        cy.wait(10000)
+        cartPage.clickProceedCheckout()
+        cy.wait(10000)
+        cartPage.shippingMethodsBestWay()
+        cartPage.clickNext()
+        cy.wait(30000)
+        cartPage.clickPlaceOrder()
+        cartPage.messageSuccessCheckout(productCart.message.msg_succces_checkout)
+        
+    })
+
+    it('Verify Failed Checkout Item on Cart - No Shipping Methods', () => {
+        cy.wait(2000)
+        cartPage.clickCart()
+        cy.wait(2000)
+        cartPage.viewEditCart()
+        cy.wait(10000)
+        cartPage.clickProceedCheckout()
+        cy.wait(10000)
+        cartPage.clickNext()
+        cartPage.alertFailedNoShippingMethods(productCart.message.msg_failed_no_shipping_methods)
     })
 
 
