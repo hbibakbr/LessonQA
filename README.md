@@ -13,6 +13,7 @@ The project includes 4 Features or Scenarios from [Magento Softwaretestingboard]
    - Verify Failed Registration - Already account same email
    - Verify Failed Registration - Different password confirmation
 2. **Login**
+   - Verify Success Login
    - Verify Failed Login - Wrong Email
    - Verify Failed Login - Wrong Password
    - Verify Failed Login - Invalid Email
